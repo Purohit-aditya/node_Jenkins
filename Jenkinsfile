@@ -1,11 +1,14 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS'
-    }
-
     stages {
+
+        stage('Check Node Version') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
